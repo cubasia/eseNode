@@ -11,5 +11,7 @@ const planets = await prisma.planet.findMany();
 res.status(201).json(planets);
 })
 
+
+
 app.listen(process.env.PORT, () => console.log('listening on port ' + process.env.PORT));
 
