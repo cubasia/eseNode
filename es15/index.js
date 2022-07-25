@@ -17,13 +17,10 @@ app.get("/", async (req, res) => {
     res.status(201).json(planets);
 });
 app.post("/", (0, validation_1.validate)({ body: validation_1.planetSchema }), async (req, res) => {
-    //app.post("/",  async (req, res) => {
-    //  console.log(JSON.stringify(req.body));
     const planetData = req.body;
     const planet = await prisma.planet.create({
         data: planetData,
     });
     res.status(201).json(planet);
-    //res.status(201).json({planet:"aaaa"});
 });
 app.listen(process.env.PORT, () => console.log("listening on port " + process.env.PORT));

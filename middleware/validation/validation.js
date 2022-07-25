@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.planetSchema = exports.TypeDate = exports.DateKind = void 0;
+exports.planetSchemaUpdate = exports.planetSchema = exports.TypeDate = exports.DateKind = void 0;
 const typebox_1 = require("@sinclair/typebox");
 exports.DateKind = Symbol("DateKind");
 exports.TypeDate = typebox_1.Type.String({ format: "date-time" });
@@ -10,5 +10,10 @@ exports.planetSchema = typebox_1.Type.Object({
     description: typebox_1.Type.Optional(typebox_1.Type.String()),
     diameter: typebox_1.Type.Integer(),
     moons: typebox_1.Type.Integer(),
-    // photoFilename: Type.Optional(Type.String()),
 }, { additionalProperties: false });
+exports.planetSchemaUpdate = typebox_1.Type.Partial(typebox_1.Type.Object({
+    name: typebox_1.Type.String(),
+    description: typebox_1.Type.String(),
+    diameter: typebox_1.Type.Integer(),
+    moons: typebox_1.Type.Integer(),
+}, { additionalProperties: false }));

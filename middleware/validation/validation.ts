@@ -9,7 +9,16 @@ export const planetSchema = Type.Object({
     description: Type.Optional(Type.String()),
     diameter: Type.Integer(),
     moons: Type.Integer(),
-    // photoFilename: Type.Optional(Type.String()),
+     
 },{additionalProperties: false})
 
+export const planetSchemaUpdate = Type.Partial(
+Type.Object({
+    name: Type.String(),
+    description: Type.String(),
+    diameter: Type.Integer(),
+    moons: Type.Integer(),
+},{additionalProperties: false}))
+
 export type PlanetData = Static<typeof planetSchema>
+export type PlanetDataUpdate = Static<typeof planetSchemaUpdate>
