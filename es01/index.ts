@@ -1,3 +1,3 @@
-const somma = (a: number, b: number) => { return a + b; };
+const sommatoria = (a: number, b: number) => { return a + b; };
 
-console.log(somma(5,6))
+console.log(sommatoria(5,6))

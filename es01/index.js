@@ -1,3 +1,3 @@
 "use strict";
-const somma = (a, b) => { return a + b; };
-console.log(somma(5, 6));
+const sommatoria = (a, b) => { return a + b; };
+console.log(sommatoria(5, 6));
