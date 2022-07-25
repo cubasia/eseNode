@@ -1,0 +1,19 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlserver"
+  url      = env("DATABASE_URL")
+}
+
+model Planet {
+  id            Int      @id @default(autoincrement())
+  name          String   @db.VarChar(255)
+  description   String?
+  diameter      Int
+  moons         Int
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime
+  photoFilename String?  @db.VarChar(255)
+}
