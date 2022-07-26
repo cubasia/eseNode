@@ -5,12 +5,14 @@ import { RequestHandler } from "express";
 
 import config from "../../configuration/config"
 // console.log(config,"passport");
+
 const githubStrategy = new passportGitHub2.Strategy(
   {
     clientID: config.CLIENT_ID,
     clientSecret: config.CLIENT_SECRET,
     callbackURL: config.CALLBACK_URL,
     scope: ["user.read"],
+    
   },
   function (
     accesToken: string,

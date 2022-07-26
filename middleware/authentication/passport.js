@@ -8,7 +8,7 @@ const passport_1 = __importDefault(require("passport"));
 exports.passport = passport_1.default;
 const passport_github2_1 = __importDefault(require("passport-github2"));
 const config_1 = __importDefault(require("../../configuration/config"));
-console.log(config_1.default, "passport");
+// console.log(config,"passport");
 const githubStrategy = new passport_github2_1.default.Strategy({
     clientID: config_1.default.CLIENT_ID,
     clientSecret: config_1.default.CLIENT_SECRET,

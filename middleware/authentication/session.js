@@ -7,11 +7,12 @@ exports.initSessionMiddleware = void 0;
 const express_session_1 = __importDefault(require("express-session"));
 const config_1 = __importDefault(require("../../configuration/config"));
 function initSessionMiddleware() {
-    console.log(config_1.default, "sessione");
+    //  console.log(config, "sessione");
     return (0, express_session_1.default)({
         secret: config_1.default.SESSION_SECRET,
         resave: false,
         saveUninitialized: false,
+        proxy: true
     });
 }
 exports.initSessionMiddleware = initSessionMiddleware;

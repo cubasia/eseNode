@@ -7,5 +7,6 @@ export function initSessionMiddleware() {
       secret:config.SESSION_SECRET,
       resave: false,
       saveUninitialized: false,
+      proxy: true
     });
 }
