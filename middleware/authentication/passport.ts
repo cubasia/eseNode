@@ -4,7 +4,7 @@ import passportGitHub2 from "passport-github2"
 import { RequestHandler } from "express";
 
 import config from "../../configuration/config"
-console.log(config,"passport");
+// console.log(config,"passport");
 const githubStrategy = new passportGitHub2.Strategy(
   {
     clientID: config.CLIENT_ID,

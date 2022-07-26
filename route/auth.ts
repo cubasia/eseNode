@@ -1,40 +1,52 @@
 import { Router } from "express";
+import { nextTick } from "process";
 import { passport } from "../middleware/authentication/passport";
 
 const router = Router();
 
-// router.get("/", (req, res, next) => {
+ router.get("/failure", (req, res, next) => {
   
-//   res.status(200).send("Tutto ok")
-// });
+   res.status(200).send("Tutto Nok")
+ });
 
 
 router.get("/login", (req, res, next) => {
-  if (typeof req.query.redirectTo !== "string" || !req.query.redirectTo) {
-    res.status(400);
-    return next("Missing redirectTo query string parameter");
-  }
-
-  req.session.redirectTo = req.query.redirectTo;
+  // if (typeof req.query.redirectTo !== "string" || !req.query.redirectTo) {
+  //   res.status(400);
+  //   return next("Missing redirectTo query string parameter");
+  // }
+  //console.log(req.query.redirectTo);
+  
+  //req.session.redirectTo = req.query.redirectTo;
+  req.session.redirectTo = "http://localhost:8080/add";
 
   res.redirect("/github/login");
 });
 
 router.get(
   "/github/login",
+  // (req,res,next) => {
+  //    console.log("sonoqui")
+  //    next()
+  //  },
   passport.authenticate("github", {
     scope: ["user:email"],
   })
 );
 
 router.get(
-  "/github/callback",
+  "/login/github/authorized",
+  // (req,res,next) => {
+  //   console.log("sonoqui")
+  //   next()
+  // },
   //@ts-ignore
   passport.authenticate("github", {
-    failureRedirect: "/login",
+    failureRedirect: "/failure",
     keepSessionInfo: true,
   }),
   (req, res) => {
+    
     if (typeof req.query.redirectTo !== "string") {
       return res.status(500).end();
     }
