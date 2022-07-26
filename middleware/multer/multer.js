@@ -11,7 +11,7 @@ const generateFilename = (mimeType, originalname) => {
     const [randomFilename,] = originalname.split(".");
     const fileExtension = mime_1.default.getExtension(mimeType);
     const fileName = `${randomFilename}.${fileExtension}`;
-    console.log(fileName);
+    //console.log(fileName);
     return fileName;
 };
 exports.generateFilename = generateFilename;
@@ -26,7 +26,7 @@ const storage = multer_1.default.diskStorage({
 const VALID_MIME_TYPES = ["image/png", "image/jpg", "image/jpeg"];
 const MAX_FILE_SIZE = 6 * 1024 * 1024;
 const fileFilter = (request, file, cb) => {
-    console.log(file.mimetype);
+    //console.log(file.mimetype);
     if (VALID_MIME_TYPES.includes(file.mimetype)) {
         cb(null, true);
     }
